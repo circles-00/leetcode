@@ -96,12 +96,10 @@ func openLock(deadends []string, target string) int {
     return 0
   }
 
-  var found = false
   for queue.Size > 0 {
     topNode := queue.Peek()
 
     if topNode == target {
-      found = true
       break
     }
 
@@ -117,7 +115,7 @@ func openLock(deadends []string, target string) int {
     queue.Dequeue()
   }
 
-  if !found {
+  if distances[target] == 0 {
     return -1
   }
 
